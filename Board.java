@@ -17,11 +17,6 @@ public class Board
 	int[][] boardShips = new int[10][10];
 	int[][] boardNotes = new int[10][10];
 	
-	public static void main(String[] args)
-	{
-		toString();
-	}
-	
 	public void toString(int[][] boardShips, int[][] boardNotes)
 	{
 		int r = 0;
@@ -31,6 +26,8 @@ public class Board
 		System.out.println("# A B C D E F G H I J");
 		while (r < 10)
 		{
+			System.out.print("\n" + r + " "); //prints the lft side of the column to show what row its in and moves the row down
+			
 			while (c < 10)
 			{
 				System.out.print(boardShips[r][c] + " ");
@@ -38,7 +35,6 @@ public class Board
 			}
 			
 			r++;
-			System.out.print("\n" + r + " "); //prints the lft side of the column to show what row its in and moves the row down
 			c = 0;
 		}
 		
