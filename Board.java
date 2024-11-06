@@ -42,6 +42,8 @@ public class Board
 		System.out.println("# A B C D E F G H I J");
 		while (r < 10)
 		{
+			System.out.print("\n" + r + " "); //prints the lft side of the column to show what row its in and moves the row down
+			
 			while (c < 10)
 			{
 				System.out.print(boardNotes[r][c] + " ");
@@ -49,18 +51,21 @@ public class Board
 			}
 			
 			r++;
-			System.out.print("\n" + r + " "); //prints the lft side of the column to show what row its in and moves the row down
 			c = 0;
 		}
 	}
 }
 		
 	/*	
-	public checkShip(int r, int c, int[][] boardShips)
+	public boolean checkShip(int r, int c, int[][] boardShips)
 	{
 		if (boardShips[r][c] == 1) //one is currently a placeholder for a value that indicates whether or not the ship is there
 		{
-			System.out.println("Hit");
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 */
