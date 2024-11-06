@@ -56,7 +56,7 @@ public class Board
 }
 		
 	/*	
-	public checkShip(int r, int c)
+	public checkShip(int r, int c, int[][] boardShips)
 	{
 		if (boardShips[r][c] == 1) //one is currently a placeholder for a value that indicates whether or not the ship is there
 		{
