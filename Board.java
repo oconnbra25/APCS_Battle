@@ -14,8 +14,11 @@
 
 public class Board
 {
-	int[][] boardShips = new int[10][10];
-	int[][] boardNotes = new int[10][10];
+	public Board()
+	{
+		int[][] boardShips = new int[10][10];
+		int[][] boardNotes = new int[10][10];
+	}
 	
 	public void toString(int[][] boardShips, int[][] boardNotes)
 	{
