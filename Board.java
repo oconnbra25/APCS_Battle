@@ -61,16 +61,16 @@ public class Board
 			{
 				for (int x = 0; x < len; x++)
 				{
-					if (boardShips[(sr + x)][sc] == 0)
-					{
-						boardShips[(sr + x)][sc] = 1;
-					}
-					else
+					if (boardShips[(sr + x)][sc] != 0)
 					{
 						return false;
 					}
-					return true;
 				}
+				for (int x = 0; x < len; x++)
+				{
+						boardShips[(sr + x)][sc] = 1;
+				}
+				return true;
 			}
 			else
 			{
@@ -83,16 +83,16 @@ public class Board
 			{
 				for (int x = 0; x < len; x++)
 				{
-					if (boardShips[sr][(sc + x)] == 0)
-					{
-						boardShips[sr][(sc + x)] = 1;
-					}
-					else
+					if (boardShips[sr][(sc + x)] != 0)
 					{
 						return false;
 					}
-					return true;
 				}
+				for (int x = 0; x < len; x++)
+				{
+						boardShips[sr][(sc + x)] = 1;
+				}
+				return true;
 			}
 			else
 			{
@@ -104,16 +104,16 @@ public class Board
 			{
 				for (int x = 0; x < len; x++)
 				{
-					if (boardShips[(sr - x)][sc] == 0)
-					{
-						boardShips[(sr - x)][sc] = 1;
-					}
-					else
+					if (boardShips[(sr - x)][sc] != 0)
 					{
 						return false;
 					}
-					return true;
 				}
+				for (int x = 0; x < len; x++)
+				{
+						boardShips[(sr - x)][sc] = 1;
+				}
+				return true;
 			}
 			else
 			{
@@ -126,16 +126,16 @@ public class Board
 			{
 				for (int x = 0; x < len; x++) //change this to check every space before placing anything
 				{
-					if (boardShips[sr][(sc - x)] == 0)
-					{
-						boardShips[sr][(sc - x)] = 1;
-					}
-					else
+					if (boardShips[sr][(sc - x)] != 0)
 					{
 						return false;
 					}
-					return true;
 				}
+				for (int x = 0; x < len; x++)
+				{
+					boardShips[sr][(sc - x)] = 1;
+				}
+				return true;
 			}
 			else
 			{
