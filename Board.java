@@ -55,13 +55,17 @@ public class Board
 	//take in length, start, and direction
 	public boolean placeShip(int len, int sr, int sc, String drctn)
 	{
+		if (sr > 9 || sc > 9)
+		{
+			return false;
+		}
 		if (drctn.equals("North"))
 		{
 			if (boardShips[sr][sc] == 0)
 			{
 				for (int x = 0; x < len; x++)
 				{
-					if (boardShips[(sr + x)][sc] != 0)
+					if ((boardShips[(sr + x)][sc] != 0) || ((sr + x) > 9))
 					{
 						return false;
 					}
@@ -83,7 +87,7 @@ public class Board
 			{
 				for (int x = 0; x < len; x++)
 				{
-					if (boardShips[sr][(sc + x)] != 0)
+					if (boardShips[sr][(sc + x)] != 0  || ((sc + x) > 9))
 					{
 						return false;
 					}
@@ -98,20 +102,21 @@ public class Board
 			{
 				return false;
 			}
+		}
 		else if (drctn.equals("South"))
 		{
 			if (boardShips[sr][sc] == 0)
 			{
 				for (int x = 0; x < len; x++)
 				{
-					if (boardShips[(sr - x)][sc] != 0)
+					if (boardShips[(sr + x)][sc] != 0  || ((sr - x) > 9))
 					{
 						return false;
 					}
 				}
 				for (int x = 0; x < len; x++)
 				{
-						boardShips[(sr - x)][sc] = 1;
+						boardShips[(sr + x)][sc] = 1;
 				}
 				return true;
 			}
@@ -120,18 +125,18 @@ public class Board
 				return false;
 			}
 		}
-		else if (drctn.equals("West"))
+		else if (drctn.equals("West"))  //takes in direction that the player wants to place it
 		{
-			if (boardShips[sr][sc] == 0)
+			if (boardShips[sr][sc] == 0)  //checks to see if there is nothing there
 			{
-				for (int x = 0; x < len; x++) //change this to check every space before placing anything
+				for (int x = 0; x < len; x++)  //this loop runs through to check that there isnt something else already in the place
 				{
-					if (boardShips[sr][(sc - x)] != 0)
+					if (boardShips[sr][(sc - x)] != 0  || ((sc - x) > 9)) //checks to see if its out of bounds or if something is not equal to 0
 					{
 						return false;
 					}
 				}
-				for (int x = 0; x < len; x++)
+				for (int x = 0; x < len; x++) //this loop places the ship, if nothing else fails it will print the ship
 				{
 					boardShips[sr][(sc - x)] = 1;
 				}
@@ -139,17 +144,18 @@ public class Board
 			}
 			else
 			{
-				return false;
+				return false; //if something is in the starting spot it'll return false
 			}
 		}
+		return true;
 	}
 	
 	public void printB()
 	{
-		int r = 0;
-		int c = 0;
+		int r = 0;  //row
+		int c = 0;  //column
 		
-		System.out.print("\n_____________________");
+		System.out.print("\n_____________________");  //spacer
 		System.out.print("\n\n     Your Ships:");
 		//making the printout for your ships
 		System.out.print("\n# A B C D E F G H I J");
@@ -159,15 +165,12 @@ public class Board
 			
 			while (c < 10)
 			{
-				System.out.print(boardShips[r][c] + " ");
-				c++;
-			}
 			
 			r++;
 			c = 0;
 		}
 		r = 0;
-		System.out.print("\n_____________________");
+		System.out.print("\n_____________________");  //spacer
 		System.out.print("\n\n     Your Notes:");
 		//making the printout for your notes
 		System.out.print("\n# A B C D E F G H I J");
