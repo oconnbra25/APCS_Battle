@@ -125,18 +125,23 @@ public class Board
 				return false;
 			}
 		}
-		else if (drctn.equals("West"))  //takes in direction that the player wants to place it
+		else if (drctn.equals("West")) 
+//takes in direction that the player wants to place it
 		{
-			if (boardShips[sr][sc] == 0)  //checks to see if there is nothing there
+			if (boardShips[sr][sc] == 0)  
+//checks to see if there is nothing there
 			{
-				for (int x = 0; x < len; x++)  //this loop runs through to check that there isnt something else already in the place
+				for (int x = 0; x < len; x++)  
+//this loop checks that there isnt something else already in the place
 				{
-					if (boardShips[sr][(sc - x)] != 0  || ((sc - x) > 9)) //checks to see if its out of bounds or if something is not equal to 0
+					if (boardShips[sr][(sc - x)] != 0  || ((sc - x) > 9)) 
+//checks to see if its out of bounds or if something is not equal to 0
 					{
 						return false;
 					}
 				}
-				for (int x = 0; x < len; x++) //this loop places the ship, if nothing else fails it will print the ship
+				for (int x = 0; x < len; x++) 
+//this loop places the ship, if nothing else fails it will print the ship
 				{
 					boardShips[sr][(sc - x)] = 1;
 				}
@@ -144,7 +149,8 @@ public class Board
 			}
 			else
 			{
-				return false; //if something is in the starting spot it'll return false
+				return false; 
+//if something is in the starting spot it'll return false
 			}
 		}
 		return true;
@@ -161,7 +167,8 @@ public class Board
 		System.out.print("\n# A B C D E F G H I J");
 		while (r < 10)
 		{
-			System.out.print("\n" + r + "|"); //prints the lft side of the column to show what row its in and moves the row down
+			System.out.print("\n" + r + "|"); 
+//prints lft side of the column to show what row its in and moves the row down
 			
 			while (c < 10)
 			{
@@ -179,7 +186,8 @@ public class Board
 		System.out.print("\n# A B C D E F G H I J");
 		while (r < 10)
 		{
-			System.out.print("\n" + r + "|"); //prints the lft side of the column to show what row its in and moves the row down
+			System.out.print("\n" + r + "|"); 
+//prints lft side of the column to show what row its in and moves the row down
 			
 			while (c < 10)
 			{
@@ -197,7 +205,7 @@ public class Board
 	/*	
 	public boolean checkShip(int r, int c, int[][] boardShips)
 	{
-		if (boardShips[r][c] == 1) //one is currently a placeholder for a value that indicates whether or not the ship is there
+		if (boardShips[r][c] == 1) 
 		{
 			return true;
 		}
