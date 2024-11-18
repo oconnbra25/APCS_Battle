@@ -165,6 +165,9 @@ public class Board
 			
 			while (c < 10)
 			{
+				System.out.print(boardShips[r][c] + " ");
+				c++;
+			}
 			
 			r++;
 			c = 0;
